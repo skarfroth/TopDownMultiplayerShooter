@@ -36,7 +36,7 @@ public class SteamLobby : MonoBehaviour
     public void HostLobby()
     {
         SceneManager.LoadScene("Game");
-        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, networkManager.maxConnections);
+        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, networkManager.maxConnections);
     }
 
     private void OnLobbyCreated(LobbyCreated_t callback)
@@ -65,6 +65,7 @@ public class SteamLobby : MonoBehaviour
 
 
         networkManager.networkAddress = hostAddress;
+        SceneManager.LoadScene("Game");
         networkManager.StartClient();
     }
 
